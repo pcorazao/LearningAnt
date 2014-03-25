@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="firstbuild" default="archive" >
+<description>Compiles and runs a simple program</description>
+
+	<target name="init">
+		<mkdir dir="build/classes"/>
+		<echo>created build folder</echo>
+		<mkdir dir="dist"/>
+		<echo>created distribution folder</echo>
+		<echo>init complete!</echo>
+	</target>
+
+	<target name="compile" depends="init" description="Compiles the source code">
+		<javac srcdir="src" destdir="build/classes" />
+		<echo>compilation complete!</echo>
+	</target>
+
+	<target name="archive" depends="compile" description="Creates the JAR file">  
+		<jar destfile="dist/project.jar" basedir="build/classes" />
+		<echo>archive complete!</echo>
+	</target>
+
+	<target name="clean" depends="init" description="cleans up the workspace">  
+		<delete dir="build"/>
+		<delete dir="dist"/>
+		<echo>clean complete!</echo>
+	</target>
+
+	<target name="execute" depends="compile" description="runs the program">
+		<java
+    classname="org.antbook.welcome.Main"
+    classpath="build/classes">
+			<arg value="a"/>
+			<arg value="b"/>
+			<arg file="."/>
+		</java>
+	</target>
+
+</project>
