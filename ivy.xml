@@ -1,0 +1,14 @@
+<ivy-module version="1.4">
+  <info organisation="Asurion.MiddleTier.Java.Libraries" module="Project" />
+  <configurations defaultconfmapping="default">
+    <conf name="compile" visibility="private"/>
+    <conf name="test" extends="compile" visibility="private"/>
+    <conf name="master" />
+    <conf name="runtime" extends="compile" />
+    <conf name="default" extends="master,runtime"/>
+  </configurations>
+  <publications>
+    <!--get the artifact from our module name-->
+    <artifact conf="master"/>
+  </publications>
+  </ivy-module>

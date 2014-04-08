@@ -1,0 +1,55 @@
+<ivysettings>
+
+	<property name="asurion-artifactory-maven2-rel"
+      value="http://sdcdevrepo601:8081/artifactory/simple/rel" override="false"/>
+	<property name="asurion-artifactory-maven2-snaps"
+      value="http://localhost:8081/artifactory/simple/snaps" override="false"/>
+	<property name="maven2.pattern"
+      value="[organisation]/[module]/[revision]" />
+	<property name="maven2.pattern.ext"
+      value="${maven2.pattern}/[module]-[revision].[ext]" />
+	<property name="maven2.pattern.ivy"
+      value="${maven2.pattern}/ivy-[revision].[ext]" />
+	<credentials host="localhost" realm="Artifactory Realm" 
+	username="admin" passwd="password"/>
+	
+	<settings defaultResolver="asurion-snapshots" />
+
+
+
+	<resolvers>
+
+		<url name="asurion-releases" m2compatible="true">
+			<artifact pattern="${asurion-artifactory-maven2-rel}/${maven2.pattern.ext}"/>
+			<ivy pattern="${asurion-artifactory-maven2-rel}/${maven2.pattern.ivy}" />
+		</url>
+
+		<url name="asurion-snapshots" m2compatible="true">
+			<artifact pattern="${asurion-artifactory-maven2-snaps}/${maven2.pattern.ext}"/>
+			<ivy pattern="${asurion-artifactory-maven2-snaps}/${maven2.pattern.ivy}" />
+		</url>
+
+		<ibiblio name="asurion-artifactory-ibiblio"
+		root="${asurion-artifactory-maven2-snaps}"
+		pattern="${maven2.pattern.ext}"
+		m2compatible="true"
+		/>
+
+		<chain name="asurion-default" dual="true">
+			<resolver ref="asurion-artifactory-ibiblio"/>						
+		</chain>	
+
+		<chain name="releases" returnFirst="true">
+			<resolver ref="asurion-releases"/>			
+		</chain>
+
+		<chain name="snapshots" returnFirst="true">
+			<resolver ref="asurion-snapshots"/>			
+		</chain>		
+
+	</resolvers>
+
+	<modules>
+		<module organisation="Asurion.MiddleTier.Java.Libraries" name="*" resolver="asurion-default"/>    	
+	</modules>
+</ivysettings>

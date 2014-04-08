@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
-<project name="firstbuild" default="archive" >
+<project name="welcome" default="archive" >
 <description>Compiles and runs a simple program</description>
 
+	<import file="welcome-ivy.xml"/>
+	
 	<target name="init">
 		<mkdir dir="build/classes"/>
 		<echo>created build folder</echo>
@@ -16,8 +18,11 @@
 	</target>
 
 	<target name="archive" depends="compile" description="Creates the JAR file">  
-		<jar destfile="dist/project.jar" basedir="build/classes" />
+		<jar destfile="dist/welcome.jar" basedir="build/classes" />
 		<echo>archive complete!</echo>
+	</target>
+	
+	<target name="publishjar" depends="archive,ivy-publish">
 	</target>
 
 	<target name="clean" depends="init" description="cleans up the workspace">  
