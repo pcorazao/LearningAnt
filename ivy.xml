@@ -1,5 +1,5 @@
 <ivy-module version="1.4">
-  <info organisation="Asurion.MiddleTier.Java.Libraries" module="Project" />
+  <info organisation="Asurion.MiddleTier.Java.Libraries" module="welcome" />
   <configurations defaultconfmapping="default">
     <conf name="compile" visibility="private"/>
     <conf name="test" extends="compile" visibility="private"/>
