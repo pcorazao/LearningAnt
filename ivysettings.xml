@@ -1,7 +1,7 @@
 <ivysettings>
 
 	<property name="asurion-artifactory-maven2-rel"
-      value="http://sdcdevrepo601:8081/artifactory/simple/rel" override="false"/>
+      value="http://localhost:8081/artifactory/simple/rel" override="false"/>
 	<property name="asurion-artifactory-maven2-snaps"
       value="http://localhost:8081/artifactory/simple/snaps" override="false"/>
 	<property name="maven2.pattern"
