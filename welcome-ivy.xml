@@ -34,7 +34,7 @@
 
 	<target name="ivy-publish" depends="ivy-init" >
 		<ivy:publish resolver="snapshots" pubrevision="1-0"
-			organization="Asurion.MiddleTier.Java.Libraries" module="welcome" revision="1_0"
+			organisation="Asurion.MiddleTier.Java.Libraries" module="welcome" revision="1_0"
         overwrite="true">
 			<artifacts pattern="dist/[artifact].[ext]" />
 		</ivy:publish>
