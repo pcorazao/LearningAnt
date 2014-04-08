@@ -1,6 +1,6 @@
 <project basedir="."
 	default="ivy-prep"
-	name="GetEligibility-ivy"
+	name="welcome-ivy"
 	xmlns:ivy="antlib:fr.jayasoft.ivy.ant">
 
 	<description>
@@ -8,7 +8,7 @@
 		from the artifact repo
 	</description>
 
-	<property name="ivy.lib.dir" value="lib/ivy/asurion"/>
+	<property name="ivy.lib.dir" value="lib/ivy"/>
 
 	<target name="init">
 		<mkdir dir="${ivy.lib.dir}"/>
