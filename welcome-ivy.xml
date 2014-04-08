@@ -21,19 +21,20 @@
 
 	<target name="ivy-resolve" depends="ivy-init" description="finds all the dependent modules">
 		<ivy:resolve/>
-	</target>	
+	</target>
 
 	<target name="ivy-retrieve" depends="ivy-resolve" description="gets all the dependent modules">
 		<ivy:retrieve pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" sync="true"/>
-	</target>	
+	</target>
 
 	<!-- creates a report of all the modules -->
 	<target name="ivy-report" depends="ivy-clean,ivy-retrieve" description="executes the above targets and creates html ivy reports">
 		<ivy:report todir="build/ivy/report"/>
-	</target>	
+	</target>
 
 	<target name="ivy-publish" depends="ivy-init" >
 		<ivy:publish resolver="snapshots" pubrevision="1-0"
+			organization="Asurion.MiddleTier.Java.Libraries" module="welcome" revision="1_0"
         overwrite="true">
 			<artifacts pattern="dist/[artifact].[ext]" />
 		</ivy:publish>
